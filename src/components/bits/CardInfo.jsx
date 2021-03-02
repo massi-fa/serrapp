@@ -19,17 +19,17 @@ const CardRow = styled.div`
   flex-direction: row;
 `;
 const Stated = styled.h1`
-  font-size: 1.5em;
+  font-size: 1.5rem;
   margin: auto;
   color: white;
 `;
 const Symbol = styled.h1`
-  font-size: 1.3em;
+  font-size: 1.3rem;
   margin: auto;
   color: white;
 `;
 const Text = styled.h1`
-  font-size: 0.7em;
+  font-size: 0.7rem;
   margin: auto;
   color: white;
 `;

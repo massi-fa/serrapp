@@ -30,13 +30,15 @@ const ButtonR = styled.button`
   border: 1px transparent;
   background-color: #6bbe76;
   border-radius: 20px 0px 0px 20px;
-  width: 4rem;
+  width: 3rem;
+  height: 2.5rem;
+  margin: auto 0px auto 0px;
 `;
 const ImgIcon = styled.img`
   height: 2rem;
 `;
 const Text = styled.h1`
-  font-size: 1.5em;
+  font-size: 1.4em;
   color: white;
 `;
 

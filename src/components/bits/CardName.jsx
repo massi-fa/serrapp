@@ -8,12 +8,12 @@ const Container = styled.div`
   height: 3rem;
 `;
 const Name = styled.h1`
-  font-size: 1.5em;
+  font-size: 1.5rem;
   margin: 0px;
   color: white;
 `;
 const Time = styled.h1`
-  font-size: 1em;
+  font-size: 1rem;
   margin: 0px;
   color: white;
 `;
