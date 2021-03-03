@@ -9,7 +9,7 @@ const data = {
       borderColor: '#F7544F',
     },
     {
-      label: 'Water Tank',
+      label: 'Humidity',
       data: [10, 9, 7, 6, 1, 10, 10],
       fill: false,
       borderColor: '#0094FF',
