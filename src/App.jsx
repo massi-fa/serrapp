@@ -9,6 +9,7 @@ const Container = styled.div`
 const GlobalStyle = createGlobalStyle`
   * {
     font-family: 'Roboto', sans-serif;
+    transition: all 0.25s;
   }
   body {
     overflow: hidden;

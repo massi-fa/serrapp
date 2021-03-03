@@ -34,7 +34,9 @@ const Text = styled.h1`
   color: white;
 `;
 const Icon = styled.img`
-  height: 4rem;
+  height: 3rem;
+  margin: 5px;
+  filter: invert(1);
 `;
 
 const CardInfo = ({ value, symbols, type }) => (

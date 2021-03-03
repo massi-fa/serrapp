@@ -9,6 +9,7 @@ const Container = styled.div`
   flex-direction: row;
   justify-content: space-between;
   background-color: rgb(49, 160, 95);
+  margin-top: 1rem;
 `;
 const ButtonL = styled.button`
   outline: none;
@@ -30,8 +31,8 @@ const ButtonR = styled.button`
   border: 1px transparent;
   background-color: #6bbe76;
   border-radius: 20px 0px 0px 20px;
-  width: 3rem;
-  height: 2.5rem;
+  width: 4rem;
+  height: 2.8rem;
   margin: auto 0px auto 0px;
 `;
 const ImgIcon = styled.img`
