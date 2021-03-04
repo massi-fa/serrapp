@@ -12,39 +12,57 @@ import data from '../utils/data';
 import stat from '../res/stat.svg';
 import tick from '../res/tick.svg';
 import plant from '../res/plant.svg';
-import light from '../res/lightBulb.svg';
+// import light from '../res/lightBulb.svg';
+import rain from '../res/rain.svg';
+import day from '../res/day.svg';
+import night from '../res/cloudy-night.svg';
+
+const wheatherIcon = [
+  { id: 1, weatherStatus: 'night', icon: night },
+  { id: 2, weatherStatus: 'day', icon: day },
+  { id: 3, weatherStatus: 'rain', icon: rain },
+];
 
 const Container = styled.div`
   background-color:rgb(49, 160, 95);
   height: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: flex-start;
 `;
 const ContainerMiddle = styled.div`
-  margin-top: 10%;
-  margin-bottom: 100%;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  padding: 1%;
 `;
 const ContainerImg = styled.div`
   width: 55%;
   display: flex;
+`;
+const ContainerBorder = styled.button`
+  background-color: transparent;
+  outline: none;
+  width: 90%;
+  display: flex;
   flex-direction: column;
   justify-content: center;
+  margin: auto;
+  border: 2px solid;
+  border-radius: 20px;
+  border-color: white;
 `;
 const LampImg = styled.img`
-  width: 26%;
+  width: 70%;
   margin: auto;
-  transform: rotate(180deg);
 `;
 const PotImg = styled.img`
-  width: 80%;
+  width: 55%;
   margin: auto;
 `;
 const InfoPlant = styled.div`
   width: 45%;
+  margin: auto;
 `;
 const StatusContainer = styled.div`
   width: 100%;
@@ -145,11 +163,20 @@ const IconR = styled.img`
 `;
 
 const PlantView = () => {
+  const [weather, setWeather] = useState('day');
+  const onWeatherChange = () => {
+    if (weather === 'day') {
+      setWeather('night');
+    }
+    if (weather === 'night') {
+      setWeather('rain');
+    }
+    if (weather === 'rain') {
+      setWeather('day');
+    }
+  };
   const [statusC, setStatusC] = useState('left');
   const changeMenuL = () => {
-    if (statusC === 'right') {
-      console.log('ciao');
-    }
     setStatusC('left');
   };
   const changeMenuR = () => {
@@ -160,8 +187,12 @@ const PlantView = () => {
       <Header />
       <ContainerMiddle>
         <ContainerImg>
-          <LampImg src={light} />
-          <PotImg src={plant} />
+          <ContainerBorder onClick={onWeatherChange}>
+            {wheatherIcon.filter((icona) => icona.weatherStatus === weather).map((icona) => (
+              <LampImg src={icona.icon} />
+            ))}
+            <PotImg src={plant} />
+          </ContainerBorder>
         </ContainerImg>
         <InfoPlant>
           <CardName name="Calathea" time="26 weeks" />
