@@ -35,7 +35,7 @@ const ContainerImg = styled.div`
   justify-content: center;
 `;
 const LampImg = styled.img`
-  width: 25%;
+  width: 26%;
   margin: auto;
   transform: rotate(180deg);
 `;
