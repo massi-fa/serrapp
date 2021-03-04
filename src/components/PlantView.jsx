@@ -40,7 +40,7 @@ const LampImg = styled.img`
   transform: rotate(180deg);
 `;
 const PotImg = styled.img`
-  width:80%;
+  width: 80%;
   margin: auto;
 `;
 const InfoPlant = styled.div`
