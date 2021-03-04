@@ -6,6 +6,7 @@ import Header from './Header';
 import CardInfo from './bits/CardInfo';
 import CardName from './bits/CardName';
 import CardStat from './bits/CardStat';
+import ProgressBar from './bits/ProgressBar';
 
 import data from '../utils/data';
 
@@ -63,6 +64,13 @@ const PotImg = styled.img`
 const InfoPlant = styled.div`
   width: 45%;
   margin: auto;
+`;
+const ProgressBarContainer = styled.div`
+  margin: 80px 25px 0px 25px;
+  padding: 5px;
+  border: 2px solid;
+  border-radius: 20px;
+  border-color: white;
 `;
 const StatusContainer = styled.div`
   width: 100%;
@@ -189,7 +197,7 @@ const PlantView = () => {
         <ContainerImg>
           <ContainerBorder onClick={onWeatherChange}>
             {wheatherIcon.filter((icona) => icona.weatherStatus === weather).map((icona) => (
-              <LampImg src={icona.icon} />
+              <LampImg src={icona.icon} key={icona.id} />
             ))}
             <PotImg src={plant} />
           </ContainerBorder>
@@ -201,6 +209,9 @@ const PlantView = () => {
           <CardInfo value={36} symbols="min" type="Watering in" />
         </InfoPlant>
       </ContainerMiddle>
+      <ProgressBarContainer>
+        <ProgressBar />
+      </ProgressBarContainer>
       <StatusContainer>
         <MenuL condition={statusC}>
           <MenuH>
