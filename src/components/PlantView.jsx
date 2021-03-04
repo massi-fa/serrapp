@@ -49,7 +49,7 @@ const ContainerBorder = styled.button`
   flex-direction: column;
   justify-content: center;
   margin: auto;
-  border: 2px solid;
+  border: 3px solid;
   border-radius: 20px;
   border-color: white;
 `;
@@ -68,7 +68,7 @@ const InfoPlant = styled.div`
 const ProgressBarContainer = styled.div`
   margin: 80px 25px 0px 25px;
   padding: 5px;
-  border: 2px solid;
+  border: 3px solid;
   border-radius: 20px;
   border-color: white;
 `;
