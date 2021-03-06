@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import styled from 'styled-components/macro';
 import { Line } from 'react-chartjs-2';
+import PropTypes from 'prop-types';
 
 import Header from './Header';
 import CardInfo from './bits/CardInfo';
@@ -170,7 +171,7 @@ const IconR = styled.img`
   filter: ${(props) => (props.condition === 'right' ? 'invert(0)' : 'invert(1)')};
 `;
 
-const PlantView = () => {
+const PlantView = ({ funOpen }) => {
   const [weather, setWeather] = useState('day');
   const onWeatherChange = () => {
     if (weather === 'day') {
@@ -192,7 +193,7 @@ const PlantView = () => {
   };
   return (
     <Container>
-      <Header />
+      <Header funOpen={funOpen} />
       <ContainerMiddle>
         <ContainerImg>
           <ContainerBorder onClick={onWeatherChange}>
@@ -247,6 +248,10 @@ const PlantView = () => {
       </StatusContainer>
     </Container>
   );
+};
+
+PlantView.propTypes = {
+  funOpen: PropTypes.func.isRequired,
 };
 
 export default PlantView;

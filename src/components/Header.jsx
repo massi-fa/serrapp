@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components/macro';
+import PropTypes from 'prop-types';
 
 import back from '../res/back.svg';
 import settings from '../res/settings.svg';
@@ -43,9 +44,9 @@ const Text = styled.h1`
   color: white;
 `;
 
-const Header = () => (
+const Header = ({ funOpen }) => (
   <Container>
-    <ButtonL>
+    <ButtonL onClick={funOpen}>
       <ImgIcon src={back} />
       <Text>My plants</Text>
     </ButtonL>
@@ -54,5 +55,9 @@ const Header = () => (
     </ButtonR>
   </Container>
 );
+
+Header.propTypes = {
+  funOpen: PropTypes.func.isRequired,
+};
 
 export default Header;
