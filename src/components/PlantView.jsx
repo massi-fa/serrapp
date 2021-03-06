@@ -67,7 +67,7 @@ const InfoPlant = styled.div`
   margin: auto;
 `;
 const ProgressBarContainer = styled.div`
-  margin: 80px 25px 0px 25px;
+  margin: 10px 25px 0px 25px;
   padding: 5px;
   border: 3px solid;
   border-radius: 20px;
@@ -116,19 +116,6 @@ const MenuH = styled.div`
   display: flex;
   flex-direction: row;
   margin: 0px 0px 30px 0px;
-`;
-const MenuHC = styled.div`
-  width: 49%;
-  display: flex;
-  text-align: center;
-`;
-const Hint = styled.h1`
-  font-size: 1rem;
-  margin: auto;
-`;
-const Pipe = styled.h1`
-  margin: auto;
-  font-size: 2rem;
 `;
 const ButtonR = styled.button`
   width: 50%;
@@ -184,7 +171,7 @@ const PlantView = ({ funOpen }) => {
       setWeather('day');
     }
   };
-  const [statusC, setStatusC] = useState('left');
+  const [statusC, setStatusC] = useState('right');
   const changeMenuL = () => {
     setStatusC('left');
   };
@@ -215,15 +202,6 @@ const PlantView = ({ funOpen }) => {
       </ProgressBarContainer>
       <StatusContainer>
         <MenuL condition={statusC}>
-          <MenuH>
-            <MenuHC>
-              <Hint>aiutoooo</Hint>
-            </MenuHC>
-            <Pipe>|</Pipe>
-            <MenuHC>
-              <Hint>annaffia la pianta coglione</Hint>
-            </MenuHC>
-          </MenuH>
           <MenuS>
             <CardStat stated="10" symbol="%" type="Water" icon={tick} />
             <CardStat stated="78" symbol="%" type="Light" icon={tick} />

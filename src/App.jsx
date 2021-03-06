@@ -20,7 +20,7 @@ const GlobalStyle = createGlobalStyle`
 `;
 
 const App = () => {
-  const [openClose, setOpenClose] = useState('opened');
+  const [openClose, setOpenClose] = useState('closed');
   const OnOpenClose = () => {
     if (openClose === 'opened') {
       setOpenClose('closed');
