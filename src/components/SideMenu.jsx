@@ -13,10 +13,11 @@ const Container = styled.div`
   width: ${(props) => (props.condition === 'opened' ? '60%' : '0%')};
   z-index: 3;
   overflow-x: hidden;
-  background-color: #3B4A3F;
+  background-color: white;
   border-radius: 0px 10px 10px 0px;
   display: flex;
   flex-direction: column;
+  box-shadow: rgb(51 51 51) 2px 2px 7px 2px;
 `;
 const Button = styled.button`
   outline: none;
@@ -28,10 +29,10 @@ const Button = styled.button`
 `;
 const ImgIcon = styled.img`
   height: 2rem;
+  filter: invert(1);
 `;
 const Text = styled.h1`
   font-size: 1.4em;
-  color: white;
 `;
 const PlantList = styled.div`
   display: flex;

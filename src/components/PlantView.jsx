@@ -53,6 +53,7 @@ const ContainerBorder = styled.button`
   border: 3px solid;
   border-radius: 20px;
   border-color: white;
+  box-shadow: rgb(51 51 51) 2px 2px 6px 0px;
 `;
 const LampImg = styled.img`
   width: 70%;
@@ -72,10 +73,12 @@ const ProgressBarContainer = styled.div`
   border: 3px solid;
   border-radius: 20px;
   border-color: white;
+  box-shadow: rgb(51 51 51) 2px 2px 6px 0px;
 `;
 const StatusContainer = styled.div`
   width: 100%;
   border-radius: 20px 20px 0px 0px;
+  box-shadow: rgb(51 51 51) 2px 2px 7px 2px;
   background-color: white;
   z-index: 2;
   position: absolute;
@@ -85,15 +88,17 @@ const ContainerButton = styled.div`
   width: 100%;
   display: flex;
   flex-direction: row;
+  justify-content: space-between;
 `;
 const ButtonL = styled.button`
-  width: 50%;
+  width: 47%;
   height: 4rem;
   border: none;
   outline: none;
   background-color: transparent;
   background-color: ${(props) => (props.condition === 'left' ? 'white' : 'rgb(49, 160, 95)')};
   border-radius: ${(props) => (props.condition === 'left' ? '0px' : '0px 20px 0px 0px')};
+  box-shadow: ${(props) => (props.condition === 'left' ? '' : 'rgb(51 51 51) 1px -1px 20px -1px')};
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
@@ -118,13 +123,14 @@ const MenuH = styled.div`
   margin: 0px 0px 30px 0px;
 `;
 const ButtonR = styled.button`
-  width: 50%;
+  width: 47%;
   height: 4rem;
   border: none;
   outline: none;
   background-color: transparent;
   background-color: ${(props) => (props.condition === 'right' ? 'white' : 'rgb(49, 160, 95)')};
   border-radius: ${(props) => (props.condition === 'right' ? '0px' : '20px 0px 0px 0px')};
+  box-shadow: ${(props) => (props.condition === 'right' ? '' : 'rgb(51 51 51) 1px 1px 20px -1px')};
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;

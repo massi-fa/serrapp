@@ -10,6 +10,7 @@ const Container = styled.div`
   padding: 15px;
   background-color: rgb(49, 160, 95);
   border-color: rgb(49, 160, 95, 0.5);
+  width: 3.3rem;
 `;
 const ContainerS = styled.div`
   display: flex;

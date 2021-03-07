@@ -11,12 +11,23 @@ const Container = styled.div`
   border-radius: 20px;
   display: flex;
   flex-direction: column;
-  width: 50%;
-  margin: 20px auto 0px auto;
+  width: 6rem;
+  height: 7rem;
+  margin: 40px auto 0px auto;
   padding: 5px;
+  box-shadow: rgb(51 51 51) 2px 2px 9px 2px;
+`;
+const Circle = styled.div`
+  height: 3.5rem;
+  width: 3.5rem;
+  border-radius: 50%;
+  background-color: white;
+  margin: auto;
+  display: flex;
+  justify-content: center;
 `;
 const Icon = styled.img`
-  height: 4rem;
+  height: 3rem;
   margin: auto;
 `;
 const TextContainer = styled.div`
@@ -33,7 +44,9 @@ const TextType = styled.h1`
 `;
 const CardPlant = ({ name, type }) => (
   <Container>
-    <Icon src={plant} />
+    <Circle>
+      <Icon src={plant} />
+    </Circle>
     <TextContainer>
       <TextName>{name}</TextName>
       <TextType>{type}</TextType>
