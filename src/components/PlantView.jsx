@@ -209,9 +209,9 @@ const PlantView = ({ funOpen }) => {
       <StatusContainer>
         <MenuL condition={statusC}>
           <MenuS>
-            <CardStat stated="10" symbol="%" type="Water" icon={tick} />
-            <CardStat stated="78" symbol="%" type="Light" icon={tick} />
-            <CardStat stated="24" symbol="C^" type="Temp." icon={tick} />
+            <CardStat stated={10} symbol="%" type="Water" icon={tick} />
+            <CardStat stated={78} symbol="%" type="Light" icon={tick} />
+            <CardStat stated={24} symbol="C^" type="Temp." icon={tick} />
           </MenuS>
         </MenuL>
         <MenuR condition={statusC}>

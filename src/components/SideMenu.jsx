@@ -5,30 +5,21 @@ import PropTypes from 'prop-types';
 import CardPlant from './bits/CardPlant';
 
 import back from '../res/back.svg';
+import plants from '../utils/plants';
 
 const Container = styled.div`
   position: absolute;
   left: 0;
   height: 100%;
-  width: ${(props) => (props.condition === 'opened' ? '100%' : '0%')};
+  width: ${(props) => (props.condition === 'opened' ? '70%' : '0%')};
   z-index: 3;
   overflow-x: hidden;
-  display: flex
-`;
-const ContainerSide = styled.div`
-  background-color: white;
-  width: 70%;
+  display: flex;
+  background-color: rgb(49, 160, 95);
   border-radius: 0px 10px 10px 0px;
   display: flex;
   flex-direction: column;
   box-shadow: rgb(51 51 51) 2px 2px 7px 2px;
-  background-color: white;
-`;
-const Exit = styled.button`
-  width: 30%;
-  background-color: transparent;
-  outline: none;
-  border: none;
 `;
 const Button = styled.button`
   outline: none;
@@ -40,10 +31,10 @@ const Button = styled.button`
 `;
 const ImgIcon = styled.img`
   height: 2rem;
-  filter: invert(1);
 `;
 const Text = styled.h1`
   font-size: 1.4em;
+  color: white;
 `;
 const PlantList = styled.div`
   display: flex;
@@ -51,28 +42,41 @@ const PlantList = styled.div`
   overflow-y: scroll;
 `;
 
-const SideMenu = ({ funOpen, state }) => (
-  <Container condition={state}>
-    <ContainerSide>
+const useClickOutside = (ref, callback, state) => {
+  const handleClick = (e) => {
+    if (state === 'opened') {
+      if (ref.current && !ref.current.contains(e.target)) {
+        callback();
+      }
+    }
+  };
+  React.useEffect(() => {
+    document.addEventListener('click', handleClick);
+    return () => {
+      document.removeEventListener('click', handleClick);
+    };
+  });
+};
+
+const SideMenu = ({ funOpen, state }) => {
+  const clickRef = React.useRef();
+  useClickOutside(clickRef, funOpen, state);
+  return (
+    <Container condition={state} ref={clickRef}>
       <Button onClick={funOpen}>
         <ImgIcon src={back} />
         <Text>PlantView</Text>
       </Button>
       <PlantList>
-        <CardPlant name="Weed" type="Outdoor" />
-        <CardPlant name="Weed" type="Outdoor" />
-        <CardPlant name="Weed" type="Outdoor" />
-        <CardPlant name="Weed" type="Outdoor" />
-        <CardPlant name="Weed" type="Outdoor" />
-        <CardPlant name="Weed" type="Outdoor" />
-        <CardPlant name="Weed" type="Outdoor" />
-        <CardPlant name="Weed" type="Outdoor" />
-        <CardPlant name="Weed" type="Outdoor" />
+        {
+          plants.map((el) => (
+            <CardPlant res={el.image} name={el.name} type={el.type} />
+          ))
+        }
       </PlantList>
-    </ContainerSide>
-    <Exit onClick={funOpen} />
-  </Container>
-);
+    </Container>
+  );
+};
 
 SideMenu.propTypes = {
   funOpen: PropTypes.func.isRequired,
