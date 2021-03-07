@@ -7,7 +7,7 @@ import plant from '../../res/plant.svg';
 const Container = styled.div`
   background-color:rgb(49, 160, 95);
   border: 4px solid;
-  border-color:  white;
+  border-color:  rgb(49, 160, 95);
   border-radius: 20px;
   display: flex;
   flex-direction: column;
