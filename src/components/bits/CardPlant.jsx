@@ -9,7 +9,7 @@ const Container = styled.div`
   flex-direction: row;
   justify-content: space-around;
   width: 70%;
-  margin: 40px auto 0px auto;
+  margin: 20px auto 20px auto;
   padding: 10px;
   box-shadow: rgba(51,51,51,0.7) 2px 2px 9px 2px;
 `;
