@@ -68,7 +68,7 @@ const plants = [
     temperature: 0,
   },
   {
-    id: 5,
+    id: 6,
     image: weed,
     name: 'Blueberry',
     type: 'Indoor',
@@ -81,7 +81,7 @@ const plants = [
     temperature: 0,
   },
   {
-    id: 5,
+    id: 7,
     image: weed,
     name: 'OG Kush',
     type: 'Indoor',
