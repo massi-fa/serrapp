@@ -47,30 +47,14 @@ const CardPlant = ({
   res,
   name,
   type,
-  time,
-  humidity,
-  fertilizer,
-  watering,
-  watertank,
-  light,
-  temperature,
+  id,
 }) => {
   const history = useHistory();
-  const handleSubmit = () => {
-    history.push('/plant', {
-      nome: { name },
-      type: { type },
-      time: { time },
-      humidity: { humidity },
-      fertilizer: { fertilizer },
-      watering: { watering },
-      watertank: { watertank },
-      light: { light },
-      temperature: { temperature },
-    });
+  const handleClick = () => {
+    history.push(`/${name}/${type}/${id}`);
   };
   return (
-    <Container onClick={handleSubmit}>
+    <Container onClick={handleClick}>
       <Circle>
         <Icon src={res} />
       </Circle>
@@ -86,13 +70,7 @@ CardPlant.propTypes = {
   res: PropTypes.node.isRequired,
   name: PropTypes.node.isRequired,
   type: PropTypes.node.isRequired,
-  time: PropTypes.node.isRequired,
-  humidity: PropTypes.node.isRequired,
-  fertilizer: PropTypes.node.isRequired,
-  watering: PropTypes.node.isRequired,
-  watertank: PropTypes.node.isRequired,
-  light: PropTypes.node.isRequired,
-  temperature: PropTypes.node.isRequired,
+  id: PropTypes.node.isRequired,
 };
 
 export default CardPlant;

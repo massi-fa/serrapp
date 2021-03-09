@@ -25,7 +25,7 @@ const GlobalStyle = createGlobalStyle`
 `;
 
 const App = () => {
-  const [openClose, setOpenClose] = useState('opened');
+  const [openClose, setOpenClose] = useState('closed');
   const OnOpenClose = () => {
     if (openClose === 'opened') {
       setOpenClose('closed');
@@ -39,9 +39,12 @@ const App = () => {
     <Container>
       <ThemeProvider theme={{ mode: 'light' }}>
         <GlobalStyle />
-        <SideMenu funOpen={OnOpenClose} state={openClose} />
         <Router>
+          <SideMenu funOpen={OnOpenClose} state={openClose} />
           <Switch>
+            <Route path="/:name/:type/:id">
+              <PlantView funOpen={OnOpenClose} />
+            </Route>
             <Route path="/">
               <PlantView funOpen={OnOpenClose} />
             </Route>

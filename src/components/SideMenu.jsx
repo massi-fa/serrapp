@@ -74,14 +74,8 @@ const SideMenu = ({ funOpen, state }) => {
               res={el.image}
               name={el.name}
               type={el.type}
+              id={el.id}
               key={el.id}
-              time={el.time}
-              humidity={el.humidity}
-              fertilizer={el.fertilizer}
-              watering={el.watering}
-              watertank={el.watertank}
-              light={el.light}
-              temperature={el.temperature}
             />
           ))
         }

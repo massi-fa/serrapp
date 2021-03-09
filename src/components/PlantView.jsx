@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import styled from 'styled-components/macro';
 import { Line } from 'react-chartjs-2';
 import PropTypes from 'prop-types';
+import { useParams } from 'react-router-dom';
 
 import Header from './Header';
 import CardInfo from './bits/CardInfo';
@@ -10,6 +11,7 @@ import CardStat from './bits/CardStat';
 import ProgressBar from './bits/ProgressBar';
 
 import data from '../utils/data';
+// import plants from '../utils/plants';
 
 import stat from '../res/stat.svg';
 import tick from '../res/tick.svg';
@@ -18,6 +20,7 @@ import plant from '../res/plant.svg';
 import rain from '../res/rain.svg';
 import day from '../res/day.svg';
 import night from '../res/cloudy-night.svg';
+import plants from '../utils/plants';
 
 const wheatherIcon = [
   { id: 1, weatherStatus: 'night', icon: night },
@@ -165,18 +168,13 @@ const IconR = styled.img`
 `;
 
 const PlantView = ({ funOpen }) => {
-  const [weather, setWeather] = useState('day');
-  const onWeatherChange = () => {
-    if (weather === 'day') {
-      setWeather('night');
-    }
-    if (weather === 'night') {
-      setWeather('rain');
-    }
-    if (weather === 'rain') {
-      setWeather('day');
-    }
-  };
+  const { id } = useParams();
+  let obj;
+  if (id !== undefined) {
+    obj = plants.find((element) => element.id === Number(id));
+  } else {
+    obj = plants.find((element) => element.id === 1);
+  }
   const [statusC, setStatusC] = useState('right');
   const changeMenuL = () => {
     setStatusC('left');
@@ -189,18 +187,18 @@ const PlantView = ({ funOpen }) => {
       <Header funOpen={funOpen} />
       <ContainerMiddle>
         <ContainerImg>
-          <ContainerBorder onClick={onWeatherChange}>
-            {wheatherIcon.filter((icona) => icona.weatherStatus === weather).map((icona) => (
+          <ContainerBorder>
+            {wheatherIcon.filter((icona) => icona.weatherStatus === obj.day).map((icona) => (
               <LampImg src={icona.icon} key={icona.id} />
             ))}
             <PotImg src={plant} />
           </ContainerBorder>
         </ContainerImg>
         <InfoPlant>
-          <CardName name="Calathea" time="26 weeks" />
-          <CardInfo value={19} symbols="%" type="Humidity" />
-          <CardInfo value={86} symbols="%" type="Fertilizer" />
-          <CardInfo value={36} symbols="min" type="Watering in" />
+          <CardName name={obj.name} time={obj.time} />
+          <CardInfo value={obj.humidity} symbols="%" type="Humidity" />
+          <CardInfo value={obj.fertilizer} symbols="%" type="Fertilizer" />
+          <CardInfo value={obj.watering} symbols="min" type="Watering in" />
         </InfoPlant>
       </ContainerMiddle>
       <ProgressBarContainer>
@@ -209,9 +207,9 @@ const PlantView = ({ funOpen }) => {
       <StatusContainer>
         <MenuL condition={statusC}>
           <MenuS>
-            <CardStat stated={10} symbol="%" type="Water" icon={tick} />
-            <CardStat stated={78} symbol="%" type="Light" icon={tick} />
-            <CardStat stated={24} symbol="C^" type="Temp." icon={tick} />
+            <CardStat stated={obj.watertank} symbol="%" type="Water" icon={tick} />
+            <CardStat stated={obj.light} symbol="%" type="Light" icon={tick} />
+            <CardStat stated={obj.temperature} symbol="C^" type="Temp." icon={tick} />
           </MenuS>
         </MenuL>
         <MenuR condition={statusC}>
