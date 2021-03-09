@@ -1,4 +1,9 @@
 import React, { useState } from 'react';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+} from 'react-router-dom';
 import styled, { createGlobalStyle, ThemeProvider } from 'styled-components/macro';
 import PlantView from './components/PlantView';
 // import PlantView from './components/PlantView';
@@ -20,7 +25,7 @@ const GlobalStyle = createGlobalStyle`
 `;
 
 const App = () => {
-  const [openClose, setOpenClose] = useState('closed');
+  const [openClose, setOpenClose] = useState('opened');
   const OnOpenClose = () => {
     if (openClose === 'opened') {
       setOpenClose('closed');
@@ -35,7 +40,13 @@ const App = () => {
       <ThemeProvider theme={{ mode: 'light' }}>
         <GlobalStyle />
         <SideMenu funOpen={OnOpenClose} state={openClose} />
-        <PlantView funOpen={OnOpenClose} />
+        <Router>
+          <Switch>
+            <Route path="/">
+              <PlantView funOpen={OnOpenClose} />
+            </Route>
+          </Switch>
+        </Router>
       </ThemeProvider>
     </Container>
   );

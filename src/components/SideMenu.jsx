@@ -70,7 +70,19 @@ const SideMenu = ({ funOpen, state }) => {
       <PlantList>
         {
           plants.map((el) => (
-            <CardPlant res={el.image} name={el.name} type={el.type} key={el.id} />
+            <CardPlant
+              res={el.image}
+              name={el.name}
+              type={el.type}
+              key={el.id}
+              time={el.time}
+              humidity={el.humidity}
+              fertilizer={el.fertilizer}
+              watering={el.watering}
+              watertank={el.watertank}
+              light={el.light}
+              temperature={el.temperature}
+            />
           ))
         }
       </PlantList>

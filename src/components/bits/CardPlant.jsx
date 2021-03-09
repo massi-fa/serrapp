@@ -1,9 +1,12 @@
 import React from 'react';
 import styled from 'styled-components/macro';
 import PropTypes from 'prop-types';
+import { useHistory } from 'react-router-dom';
 
-const Container = styled.div`
+const Container = styled.button`
   background-color:#bbc9c2;
+  outline: none;
+  border: none;
   border-radius: 20px;
   display: flex;
   flex-direction: row;
@@ -40,22 +43,56 @@ const TextType = styled.h1`
   margin: auto;
   font-size: 0.8rem;
 `;
-const CardPlant = ({ res, name, type }) => (
-  <Container>
-    <Circle>
-      <Icon src={res} />
-    </Circle>
-    <TextContainer>
-      <TextName>{name}</TextName>
-      <TextType>{type}</TextType>
-    </TextContainer>
-  </Container>
-);
+const CardPlant = ({
+  res,
+  name,
+  type,
+  time,
+  humidity,
+  fertilizer,
+  watering,
+  watertank,
+  light,
+  temperature,
+}) => {
+  const history = useHistory();
+  const handleSubmit = () => {
+    history.push('/plant', {
+      nome: { name },
+      type: { type },
+      time: { time },
+      humidity: { humidity },
+      fertilizer: { fertilizer },
+      watering: { watering },
+      watertank: { watertank },
+      light: { light },
+      temperature: { temperature },
+    });
+  };
+  return (
+    <Container onClick={handleSubmit}>
+      <Circle>
+        <Icon src={res} />
+      </Circle>
+      <TextContainer>
+        <TextName>{name}</TextName>
+        <TextType>{type}</TextType>
+      </TextContainer>
+    </Container>
+  );
+};
 
 CardPlant.propTypes = {
   res: PropTypes.node.isRequired,
   name: PropTypes.node.isRequired,
   type: PropTypes.node.isRequired,
+  time: PropTypes.node.isRequired,
+  humidity: PropTypes.node.isRequired,
+  fertilizer: PropTypes.node.isRequired,
+  watering: PropTypes.node.isRequired,
+  watertank: PropTypes.node.isRequired,
+  light: PropTypes.node.isRequired,
+  temperature: PropTypes.node.isRequired,
 };
 
 export default CardPlant;
