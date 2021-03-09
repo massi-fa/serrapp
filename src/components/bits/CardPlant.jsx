@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import { useHistory } from 'react-router-dom';
 
 const Container = styled.button`
-  background-color:#bbc9c2;
+  background-color: ${(props) => (props.condition ? 'white' : '#bbc9c2')};
   outline: none;
   border: none;
   border-radius: 20px;
@@ -48,13 +48,14 @@ const CardPlant = ({
   name,
   type,
   id,
+  isActive,
 }) => {
   const history = useHistory();
   const handleClick = () => {
     history.push(`/${name}/${type}/${id}`);
   };
   return (
-    <Container onClick={handleClick}>
+    <Container onClick={handleClick} condition={isActive}>
       <Circle>
         <Icon src={res} />
       </Circle>
@@ -71,6 +72,7 @@ CardPlant.propTypes = {
   name: PropTypes.node.isRequired,
   type: PropTypes.node.isRequired,
   id: PropTypes.node.isRequired,
+  isActive: PropTypes.node.isRequired,
 };
 
 export default CardPlant;

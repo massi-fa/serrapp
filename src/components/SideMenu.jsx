@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
+import { useParams } from 'react-router-dom';
 
 import CardPlant from './bits/CardPlant';
 
@@ -61,6 +62,13 @@ const useClickOutside = (ref, callback, state) => {
 const SideMenu = ({ funOpen, state }) => {
   const clickRef = React.useRef();
   useClickOutside(clickRef, funOpen, state);
+  const { id } = useParams();
+  let activated;
+  if (id !== undefined) {
+    activated = Number(id);
+  } else {
+    activated = 1;
+  }
   return (
     <Container condition={state} ref={clickRef}>
       <Button onClick={funOpen}>
@@ -76,6 +84,7 @@ const SideMenu = ({ funOpen, state }) => {
               type={el.type}
               id={el.id}
               key={el.id}
+              isActive={el.id === activated}
             />
           ))
         }

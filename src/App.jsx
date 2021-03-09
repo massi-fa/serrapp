@@ -29,10 +29,8 @@ const App = () => {
   const OnOpenClose = () => {
     if (openClose === 'opened') {
       setOpenClose('closed');
-      console.log(openClose);
     } else {
       setOpenClose('opened');
-      console.log(openClose);
     }
   };
   return (
@@ -40,12 +38,13 @@ const App = () => {
       <ThemeProvider theme={{ mode: 'light' }}>
         <GlobalStyle />
         <Router>
-          <SideMenu funOpen={OnOpenClose} state={openClose} />
           <Switch>
             <Route path="/:name/:type/:id">
+              <SideMenu funOpen={OnOpenClose} state={openClose} />
               <PlantView funOpen={OnOpenClose} />
             </Route>
             <Route path="/">
+              <SideMenu funOpen={OnOpenClose} state={openClose} />
               <PlantView funOpen={OnOpenClose} />
             </Route>
           </Switch>
