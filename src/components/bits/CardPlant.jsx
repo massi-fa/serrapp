@@ -72,7 +72,7 @@ CardPlant.propTypes = {
   name: PropTypes.node.isRequired,
   type: PropTypes.node.isRequired,
   id: PropTypes.node.isRequired,
-  isActive: PropTypes.node.isRequired,
+  isActive: PropTypes.bool.isRequired,
 };
 
 export default CardPlant;
